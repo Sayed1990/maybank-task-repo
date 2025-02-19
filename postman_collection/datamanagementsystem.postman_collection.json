@@ -1,0 +1,348 @@
+{
+	"info": {
+		"_postman_id": "ae202420-7140-4dec-8b0c-996dc1e2fcae",
+		"name": "datamanagementsystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30439327"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "http://localhost:8005/home/login?email=syed@gmail.com&password=abc111",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const jsonResponse = pm.response.json();\r",
+									"pm.globals.set(\"bearer-token\", jsonResponse.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{ip_address}}:{{port}}/home/login?email=syed@gmail.com&password=1234",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"home",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "syed@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "1234"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8005/home/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"syed@gmail.com\",\r\n    \"password\":\"abc111\",\r\n    \"name\":\"Syed\",\r\n    \"age\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{ip_address}}:{{port}}/home/register",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"home",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://{{ip_address}}:{{port}}/public/get/by/rt",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{ip_address}}:{{port}}/public/get/by/rt",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"public",
+								"get",
+								"by",
+								"rt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://{{ip_address}}:{{port}}/public/get/by/pt",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{ip_address}}:{{port}}/public/get/by/pt",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"public",
+								"get",
+								"by",
+								"pt"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "data",
+			"item": [
+				{
+					"name": "saveToDB",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"accountNumber\":\"111\",\r\n    \"trxAmmount\":10.00,\r\n    \"description\":\"FT\",\r\n    \"trxDate\":\"2023-09-02\",\r\n    \"time\":\"11:11:11\",\r\n    \"customerDetails\":{\r\n        \"name\": \"Syed\",\r\n        \"title\": \"Senior Java Dev\",\r\n        \"age\": 35\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{ip_address}}:{{port}}/data/add",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"data",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{ip_address}}:{{port}}/book/all?pageNo=0&pageSize=18",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"book",
+								"all"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateByCustomerId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"accountNumber\":\"111\",\r\n    \"trxAmmount\":10.00,\r\n    \"description\":\"FT-Z\",\r\n    \"trxDate\":\"2023-09-02\",\r\n    \"time\":\"11:11:11\",\r\n    \"customerDetails\":{\r\n        \"name\": \"Syed\",\r\n        \"title\": \"Senior Java Dev\",\r\n        \"age\": 35\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{ip_address}}:{{port}}/book/update/1",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"book",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{ip_address}}:{{port}}/book/delete/1",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"book",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBycustID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{ip_address}}:{{port}}/book/retrieve/csId/222?pageNo=0&pageSize=18",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"book",
+								"retrieve",
+								"csId",
+								"222"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "18"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
