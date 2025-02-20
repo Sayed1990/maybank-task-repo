@@ -53,10 +53,7 @@ Before these steps, ensure that build the war file of all microservices ( user-m
      docker network connect maybank-network eureka-server
      docker network connect maybank-network user-management
      docker network connect maybank-network book-management
-     docker network connect maybank-network kafka-ui
-     docker network connect maybank-network kafka
      docker network connect maybank-network mysql-db
-     docker network connect maybank-network zookeeper
  After connected all the network, please inspect it to see if all mounted . use command "docker network inspect maybank-network"
 4) once connected, now open postmaan and hit the api to test.
 
