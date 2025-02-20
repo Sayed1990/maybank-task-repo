@@ -1,3 +1,4 @@
+<<<<<<<< HEAD:run-as-microservices-docker/book-management/src/main/resources/application.yml
 server:
   port: 8072
 spring:
@@ -19,6 +20,19 @@ spring:
   server:
     port: 8071
     address: 0.0.0.0
+========
+<<<<<<< HEAD
+server:
+  port: 8073
+spring:
+  application:
+    name: user-management
+#  jackson:
+#    serialization:
+#      WRITE_DATES_AS_TIMESTAMPS: false
+#    STREAM_WRITE_CONSTRAINTS:
+#      MAX_NESTING_DEPTH: 2000
+>>>>>>>> 52d73478a67759e0764ce4ef59022f89f1aa7923:src/main/resources/application.yml
 
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB_NAME:maybank-db}?allowPublicKeyRetrieval=true&useSSL=false
@@ -59,13 +73,18 @@ jwt:
   secret: taskformaybanksecretkey@&_)((^$#$#$#$##########@highlysecretkeyREALLYLONGSECRET
   expirationDateInMs: 18000000
 
+<<<<<<<< HEAD:run-as-microservices-docker/book-management/src/main/resources/application.yml
 frontendURL: http://localhost:8070
+========
+frontendURL: http://localhost:8080
+>>>>>>>> 52d73478a67759e0764ce4ef59022f89f1aa7923:src/main/resources/application.yml
 
 usermanagementsystem:
   openapi:
     dev-url: http://localhost:8005
 
 springdoc:
+<<<<<<<< HEAD:run-as-microservices-docker/book-management/src/main/resources/application.yml
   packages-to-scan: com.maybanktask.book_management
   swagger-ui:
     path: /book-management-ui
@@ -82,6 +101,13 @@ eureka:
     fetch-registry: true
   instance:
     hostname: book-management
+========
+  springdoc:
+    swagger-ui:
+      path: /swagger-ui.html
+    api-docs:
+      path: /v3/api-docs
+>>>>>>>> 52d73478a67759e0764ce4ef59022f89f1aa7923:src/main/resources/application.yml
 
 datafeed:
   name: syed
@@ -89,9 +115,106 @@ datafeed:
   password: 1234
   email: syed@gmail.com
 
+<<<<<<<< HEAD:run-as-microservices-docker/book-management/src/main/resources/application.yml
 micro-service:
      book-service:
                name: book-service
                landing-page-url: /book/getall
 
 allowedUrl: http://127.0.0.1:8070/
+========
+ignored:
+  urls:
+    - "/home/**"
+    - "/v3/**"
+    - "/librarymanagementsystem-ui"
+    - "/librarymanagementsystem-docs"
+    - "/swagger-ui/**"
+    - "/librarymanagementsystem-docs/**"
+    - "/public"
+
+
+=======
+server:
+  port: 8073
+spring:
+  application:
+    name: user-management
+#  jackson:
+#    serialization:
+#      WRITE_DATES_AS_TIMESTAMPS: false
+#    STREAM_WRITE_CONSTRAINTS:
+#      MAX_NESTING_DEPTH: 2000
+
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB_NAME:maybank-db}?allowPublicKeyRetrieval=true&useSSL=false
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:toor}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        temp:
+          use_jdbc_metadata_defaults: false
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+  sql:
+    init:
+      mode: always
+
+  logging:
+    level:
+      org.springframework.boot: ERROR
+
+#  doc:
+#    packages-to-scan: com.maybanktask.user_management
+#    swagger-ui:
+#      path: /usermanagementsystem-ui
+#      tryItOutEnabled: true
+#      operationsSorter: method
+#      tagsSorter: alpha
+#      filter: true
+#    api-docs:
+#      path: /usermanagementsystem-docs
+
+jwt:
+  secret: taskformaybanksecretkey@&_)((^$#$#$#$##########@highlysecretkeyREALLYLONGSECRET
+  expirationDateInMs: 18000000
+
+frontendURL: http://localhost:8080
+
+usermanagementsystem:
+  openapi:
+    dev-url: http://localhost:8005
+
+springdoc:
+  springdoc:
+    swagger-ui:
+      path: /swagger-ui.html
+    api-docs:
+      path: /v3/api-docs
+
+datafeed:
+  name: syed
+  age: 35
+  password: 1234
+  email: syed@gmail.com
+
+ignored:
+  urls:
+    - "/home/**"
+    - "/v3/**"
+    - "/librarymanagementsystem-ui"
+    - "/librarymanagementsystem-docs"
+    - "/swagger-ui/**"
+    - "/librarymanagementsystem-docs/**"
+    - "/public"
+
+
+>>>>>>> origin/main
+third-party-url: https://restcountries.com/v3.1/all
+>>>>>>>> 52d73478a67759e0764ce4ef59022f89f1aa7923:src/main/resources/application.yml
