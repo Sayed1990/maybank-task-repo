@@ -148,7 +148,7 @@
 			]
 		},
 		{
-			"name": "data",
+			"name": "data-",
 			"item": [
 				{
 					"name": "saveToDB",
@@ -205,14 +205,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{ip_address}}:{{port}}/book/all?pageNo=0&pageSize=18",
+							"raw": "http://{{ip_address}}:{{port}}/data/all?pageNo=0&pageSize=10",
 							"protocol": "http",
 							"host": [
 								"{{ip_address}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"book",
+								"data",
 								"all"
 							],
 							"query": [
@@ -222,7 +222,7 @@
 								},
 								{
 									"key": "pageSize",
-									"value": "18"
+									"value": "10"
 								}
 							]
 						}
@@ -254,14 +254,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{ip_address}}:{{port}}/book/update/1",
+							"raw": "http://{{ip_address}}:{{port}}/data/update/1",
 							"protocol": "http",
 							"host": [
 								"{{ip_address}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"book",
+								"data",
 								"update",
 								"1"
 							]
@@ -285,14 +285,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://{{ip_address}}:{{port}}/book/delete/1",
+							"raw": "http://{{ip_address}}:{{port}}/data/delete/1",
 							"protocol": "http",
 							"host": [
 								"{{ip_address}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"book",
+								"data",
 								"delete",
 								"1"
 							]
@@ -316,17 +316,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://{{ip_address}}:{{port}}/book/retrieve/csId/222?pageNo=0&pageSize=18",
+							"raw": "http://{{ip_address}}:{{port}}/data/retrieve/csId/1?pageNo=0&pageSize=18",
 							"protocol": "http",
 							"host": [
 								"{{ip_address}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"book",
+								"data",
 								"retrieve",
 								"csId",
-								"222"
+								"1"
 							],
 							"query": [
 								{
