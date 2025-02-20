@@ -519,3 +519,69 @@ Identify and stop the process that's listening on port 8761 or configure this ap
 2025-02-20 23:56:41 - INFO - Registered instance USER-MANAGEMENT/DESKTOP-FIK5SPH.mshome.net:user-management:8073 with status DOWN (replication=false)
 2025-02-20 23:56:45 - INFO - Cancelled instance USER-MANAGEMENT/DESKTOP-FIK5SPH.mshome.net:user-management:8073 (replication=false)
 2025-02-20 23:57:30 - INFO - Running the evict task with compensationTime 0ms
+2025-02-21 00:19:56 - INFO - Starting EurekaServerManagementApplication using Java 23.0.2 with PID 8384 (C:\Users\Administrator\Music\Application Forms\maybank-task-repo\run-as-microservices-docker\eureka-server-management\target\classes started by Administrator in C:\Users\Administrator\Music\Application Forms\maybank-task-repo\run-as-microservices-docker\eureka-server-management)
+2025-02-21 00:19:56 - INFO - Starting EurekaServerManagementApplication using Java 23.0.2 with PID 8384 (C:\Users\Administrator\Music\Application Forms\maybank-task-repo\run-as-microservices-docker\eureka-server-management\target\classes started by Administrator in C:\Users\Administrator\Music\Application Forms\maybank-task-repo\run-as-microservices-docker\eureka-server-management)
+2025-02-21 00:19:56 - DEBUG - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-21 00:19:56 - DEBUG - Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-21 00:19:56 - INFO - No active profile set, falling back to 1 default profile: "default"
+2025-02-21 00:19:56 - INFO - No active profile set, falling back to 1 default profile: "default"
+2025-02-21 00:20:01 - INFO - BeanFactory id=50c16807-1c6e-392c-bb47-6eb6429f3762
+2025-02-21 00:20:02 - INFO - Tomcat initialized with port 8762 (http)
+2025-02-21 00:20:02 - INFO - Initializing ProtocolHandler ["http-nio-8762"]
+2025-02-21 00:20:02 - INFO - Starting service [Tomcat]
+2025-02-21 00:20:02 - INFO - Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-21 00:20:02 - INFO - Initializing Spring embedded WebApplicationContext
+2025-02-21 00:20:02 - INFO - Root WebApplicationContext: initialization completed in 5485 ms
+2025-02-21 00:20:06 - INFO - Using JSON encoding codec LegacyJacksonJson
+2025-02-21 00:20:06 - INFO - Using JSON decoding codec LegacyJacksonJson
+2025-02-21 00:20:07 - INFO - Using XML encoding codec XStreamXml
+2025-02-21 00:20:07 - INFO - Using XML decoding codec XStreamXml
+2025-02-21 00:20:07 - INFO - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-02-21 00:20:10 - WARN - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-02-21 00:20:10 - INFO - Setting initial instance status as: STARTING
+2025-02-21 00:20:10 - INFO - Initializing Eureka in region us-east-1
+2025-02-21 00:20:10 - INFO - Client configured to neither register nor query for data.
+2025-02-21 00:20:10 - INFO - Discovery Client initialized at timestamp 1740068410717 with initial instances count: 0
+2025-02-21 00:20:10 - INFO - Initializing ...
+2025-02-21 00:20:10 - WARN - The replica size seems to be empty. Check the route 53 DNS Registry
+2025-02-21 00:20:10 - INFO - Finished initializing remote region registries. All known remote regions: []
+2025-02-21 00:20:10 - INFO - Initialized
+2025-02-21 00:20:10 - INFO - Exposing 1 endpoint beneath base path '/actuator'
+2025-02-21 00:20:11 - INFO - Registering application UNKNOWN with eureka with status UP
+2025-02-21 00:20:11 - INFO - Starting ProtocolHandler ["http-nio-8762"]
+2025-02-21 00:20:11 - INFO - isAws returned false
+2025-02-21 00:20:11 - INFO - Initialized server context
+2025-02-21 00:20:11 - INFO - Got 1 instances from neighboring DS node
+2025-02-21 00:20:11 - INFO - Renew threshold is: 1
+2025-02-21 00:20:11 - INFO - Changing status to UP
+2025-02-21 00:20:11 - INFO - Started Eureka Server
+2025-02-21 00:20:11 - INFO - Tomcat started on port 8762 (http) with context path '/'
+2025-02-21 00:20:11 - INFO - Updating port to 8762
+2025-02-21 00:20:11 - INFO - Started EurekaServerManagementApplication in 17.242 seconds (process running for 20.844)
+2025-02-21 00:20:11 - INFO - Started EurekaServerManagementApplication in 17.242 seconds (process running for 20.844)
+2025-02-21 00:20:11 - INFO - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-21 00:20:11 - INFO - Initializing Servlet 'dispatcherServlet'
+2025-02-21 00:20:11 - INFO - Completed initialization in 2 ms
+2025-02-21 00:20:12 - WARN - DS: Registry: lease doesn't exist, registering resource: BOOK-MANAGEMENT - DESKTOP-FIK5SPH.mshome.net:book-management:8072
+2025-02-21 00:20:12 - WARN - Not Found (Renew): BOOK-MANAGEMENT - DESKTOP-FIK5SPH.mshome.net:book-management:8072
+2025-02-21 00:20:12 - INFO - Registered instance BOOK-MANAGEMENT/DESKTOP-FIK5SPH.mshome.net:book-management:8072 with status UP (replication=false)
+2025-02-21 00:20:12 - INFO - Registered instance BOOK-MANAGEMENT/DESKTOP-FIK5SPH.mshome.net:book-management:8072 with status UP (replication=false)
+2025-02-21 00:20:17 - INFO - Registered instance USER-MANAGEMENT/DESKTOP-FIK5SPH.mshome.net:user-management:8073 with status UP (replication=false)
+2025-02-21 00:21:11 - INFO - Running the evict task with compensationTime 0ms
+2025-02-21 00:22:11 - INFO - Running the evict task with compensationTime 3ms
+2025-02-21 00:23:11 - INFO - Running the evict task with compensationTime 0ms
+2025-02-21 00:23:59 - INFO - Registered instance BOOK-MANAGEMENT/DESKTOP-FIK5SPH.mshome.net:book-management:8072 with status DOWN (replication=false)
+2025-02-21 00:24:02 - INFO - Cancelled instance BOOK-MANAGEMENT/DESKTOP-FIK5SPH.mshome.net:book-management:8072 (replication=false)
+2025-02-21 00:24:05 - INFO - Registered instance USER-MANAGEMENT/DESKTOP-FIK5SPH.mshome.net:user-management:8073 with status DOWN (replication=false)
+2025-02-21 00:24:08 - INFO - Cancelled instance USER-MANAGEMENT/DESKTOP-FIK5SPH.mshome.net:user-management:8073 (replication=false)
+2025-02-21 00:24:08 - INFO - Unregistering application UNKNOWN with eureka with status DOWN
+2025-02-21 00:24:08 - INFO - Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-21 00:24:08 - INFO - Graceful shutdown complete
+2025-02-21 00:24:08 - INFO - Shutting down Eureka Server..
+2025-02-21 00:24:08 - INFO - Shutting down ...
+2025-02-21 00:24:08 - INFO - Shut down
+2025-02-21 00:24:08 - INFO - Eureka Service is now shutdown...
+2025-02-21 00:24:08 - INFO - Shutting down ...
+2025-02-21 00:24:08 - INFO - Shut down
+2025-02-21 00:24:08 - INFO - Shutting down DiscoveryClient ...
+2025-02-21 00:24:08 - INFO - Completed shut down of DiscoveryClient
