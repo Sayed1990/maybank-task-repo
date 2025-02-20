@@ -1,4 +1,3 @@
-/*
 package com.maybanktask.book_management.consumer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -32,4 +31,3 @@ public class KafkaConsumer {
         }
     }
 }
-*/
