@@ -1,0 +1,114 @@
+server:
+  port: 8073
+spring:
+  kafka:
+    topics: maybank-save-book
+    producer:
+      acks: -1
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  application:
+    name: user-management
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    STREAM_WRITE_CONSTRAINTS:
+      MAX_NESTING_DEPTH: 2000
+
+  server:
+    port: 8070
+    address: 0.0.0.0
+
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB_NAME:maybank-db}?allowPublicKeyRetrieval=true&useSSL=false
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:toor}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        temp:
+          use_jdbc_metadata_defaults: false
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+  sql:
+    init:
+      mode: always
+
+  logging:
+    level:
+      org.springframework.boot: ERROR
+
+#  doc:
+#    packages-to-scan: com.maybanktask.user_management
+#    swagger-ui:
+#      path: /usermanagementsystem-ui
+#      tryItOutEnabled: true
+#      operationsSorter: method
+#      tagsSorter: alpha
+#      filter: true
+#    api-docs:
+#      path: /usermanagementsystem-docs
+
+jwt:
+  secret: taskformaybanksecretkey@&_)((^$#$#$#$##########@highlysecretkeyREALLYLONGSECRET
+  expirationDateInMs: 18000000
+
+frontendURL: http://localhost:8080
+
+usermanagementsystem:
+  openapi:
+    dev-url: http://localhost:8005
+
+springdoc:
+  packages-to-scan: com.maybanktask.user_management
+  swagger-ui:
+    path: /user-management-ui
+  api-docs:
+    path: /user-management-docs
+
+
+eureka:
+  client:
+    service-url:
+      #defaultZone: http://eureka-server:8761/eureka/
+      defaultZone: http://localhost:8762/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    hostname: user-management
+
+datafeed:
+  name: syed
+  age: 35
+  password: 1234
+  email: syed@gmail.com
+
+micro-service:
+     book-service:
+               name: book-management
+               url: 127.0.0.1:8072
+               landing-page: /book
+               create-book-page-url: ${micro-service.book-service.landing-page}/add
+               get-book-by-page-url: ${micro-service.book-service.landing-page}/all
+               get-by-cust-id-url:   ${micro-service.book-service.landing-page}/retrieve/csId/{customerId}
+               delete-by-id-url:     ${micro-service.book-service.landing-page}/delete/{customerId}
+               update-by-id-url:     ${micro-service.book-service.landing-page}/update/{customerId}
+
+ignored:
+  urls:
+    - "/home/**"
+    - "/v3/**"
+    - "/librarymanagementsystem-ui"
+    - "/librarymanagementsystem-docs"
+    - "/swagger-ui/**"
+    - "/librarymanagementsystem-docs/**"
+    - "/public"
+
+
+third-party-url: https://restcountries.com/v3.1/all
