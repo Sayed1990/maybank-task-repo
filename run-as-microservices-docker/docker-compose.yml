@@ -99,6 +99,7 @@ services:
       - eureka-server-management
       - mysql-db
       - kafka1
+      - book-management
 
   # Book Management Microservice
   book-management:

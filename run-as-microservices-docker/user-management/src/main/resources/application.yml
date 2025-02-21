@@ -92,7 +92,7 @@ datafeed:
 micro-service:
      book-service:
                name: book-management
-               url: 127.0.0.1:8071
+               url: book-management:8071 #127.0.0.1:8071
                landing-page: /book
                create-book-page-url: ${micro-service.book-service.landing-page}/add
                get-book-by-page-url: ${micro-service.book-service.landing-page}/all
