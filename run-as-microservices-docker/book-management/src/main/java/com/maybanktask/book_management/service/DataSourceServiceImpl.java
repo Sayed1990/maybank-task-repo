@@ -4,6 +4,7 @@ import com.maybanktask.book_management.DAO.Booksource;
 import com.maybanktask.book_management.DAO.CustomerDetailsEntity;
 import com.maybanktask.book_management.dto.BooksourceDto;
 import com.maybanktask.book_management.dto.CustomerDetails;
+import com.maybanktask.book_management.exception.DataSourceException;
 import com.maybanktask.book_management.repository.DataSourceRepository;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
@@ -56,7 +57,7 @@ public class DataSourceServiceImpl implements DataSourceService {
     }
 
     @Override
-    public void updateById(String id, BooksourceDto booksourceDto) {
+    public void updateById(String id, BooksourceDto booksourceDto) throws DataSourceException {
         Optional<Booksource> sourceOpt = dataSourceRepository.findById(Long.valueOf(id));
         if (sourceOpt.isPresent()) {
             Booksource source = sourceOpt.get();
@@ -70,6 +71,9 @@ public class DataSourceServiceImpl implements DataSourceService {
                 logger.error("Error occured during accessing database due to:{}", ExceptionUtils.getStackTrace(dae));
             }
 
+        }else{
+            logger.error("The data you are trying to access is not found for id:{}",id);
+            throw new DataSourceException("The data you are trying to access is not found");
         }
 
     }

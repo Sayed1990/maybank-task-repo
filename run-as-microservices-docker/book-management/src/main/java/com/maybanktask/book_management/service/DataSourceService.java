@@ -2,6 +2,7 @@ package com.maybanktask.book_management.service;
 
 import com.maybanktask.book_management.DAO.Booksource;
 import com.maybanktask.book_management.dto.BooksourceDto;
+import com.maybanktask.book_management.exception.DataSourceException;
 import org.springframework.data.domain.Page;
 
 public interface DataSourceService {
@@ -14,5 +15,5 @@ public interface DataSourceService {
 
     void deleteData(String id);
 
-    void updateById(String id, BooksourceDto booksourceDto);
+    void updateById(String id, BooksourceDto booksourceDto) throws DataSourceException;
 }
