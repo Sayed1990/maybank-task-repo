@@ -50,14 +50,19 @@ frontendURL: http://localhost:8070
 
 usermanagementsystem:
   openapi:
-    dev-url: http://localhost:8005
+    dev-url: http://localhost:8071
 
 springdoc:
   packages-to-scan: com.maybanktask.book_management
   swagger-ui:
-    path: /book-management-ui
+    path: /swagger-ui
+    url: /swagger-ui/v3/api-docs
+    tryItOutEnabled: true
+    operationsSorter: method
+    tagsSorter: alpha
+    filter: true
   api-docs:
-    path: /book-management-docs
+    path: /swagger-ui/v3/api-docs
 
 eureka:
   client:
