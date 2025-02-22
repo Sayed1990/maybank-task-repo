@@ -6,7 +6,7 @@ public class CommonConstants {
     public static final String USER_LOGIN = "/login";
     public static final String DATA_LANDING_PAGE = "/data";
     public static final String RETRIEVE_ALL_BOOKS = "/book/all";
-
+    public static final String LOGOUT = "/logout";
     public static final String SAVE_DATA = "/add";
     public static final String RETRIEVE_ALL_DATA = "/all";
     public static final String LANDING_PAGE = "/book";
