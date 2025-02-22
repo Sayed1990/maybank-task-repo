@@ -80,3 +80,12 @@ micro-service:
     landing-page-url: /book/getall
 
 allowedUrl: http://127.0.0.1:8070/
+
+ignored:
+  urls:
+    - "/home/**"
+    - "/v3/**"
+    - "/public"
+    - "/api-docs"
+    - "/swagger-ui/**"
+    - "/v3/api-docs/**"
