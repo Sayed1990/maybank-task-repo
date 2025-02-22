@@ -29,13 +29,30 @@ TECHNOLOGY USED
 10) Log SLF4J
 
 
+**************
+Important Note
+**************
 
+1) When you are running in local, make sure that you change these details first before build your project :-
+
+
+   A) On User management Application.yml under resources folder set these values:-
+
+       - bootstrap-servers: localhost:9092
+       - micro-service.book-service.url: 127.0.0.1:8071 
+   B) On Book management Application.yml under resources folder set these values:-	  
+
+       - spring.kafka.consumer.bootstrap-servers: localhost:9092
+
+
+
+	  
 *****************
 HOW TO RUN LOCALLY
 *****************
 
 1) import through maven and choose project as 'maven"
-2) let the IDE finish indexes and imports of dependencies
+2) let the IDE finish indexes and imports of dependencies. Execute "mvn clean install -Dskiptests"
 3) Run as APPLication and choose main springboot class
 4) once successfully run, open postman and call the APIS
 5) Make sure to change this value from user-management application.yml file when running in local machine :-
@@ -45,6 +62,13 @@ HOW TO RUN LOCALLY
                url: 127.0.0.1:8071
 
 Note : There is one endpoint which requires Kafka to be setup locally. And the endpoint is "/data/add". Please download zookeeper and kafka in local machine to run otherwise, please skip testing this api.
+
+To Access swagger API from browser:-
+
+1) USER-MANAGEMENT SWAGGER URL : http://localhost:8070/swagger-ui/index.html
+2) BOOK-MANAGEMENT SWAGGER URL : http://localhost:8071/swagger-ui/index.html
+
+
 
 **************************
 HOW TO RUN THROUGH DOCKER
