@@ -264,7 +264,9 @@
 							}
 						},
 						"url": {
+
 							"raw": "http://{{ip_address}}:{{port}}/data/update/52",
+
 							"protocol": "http",
 							"host": [
 								"{{ip_address}}"
