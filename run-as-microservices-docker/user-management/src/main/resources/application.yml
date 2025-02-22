@@ -44,17 +44,6 @@ spring:
     level:
       org.springframework.boot: ERROR
 
-#  doc:
-#    packages-to-scan: com.maybanktask.user_management
-#    swagger-ui:
-#      path: /usermanagementsystem-ui
-#      tryItOutEnabled: true
-#      operationsSorter: method
-#      tagsSorter: alpha
-#      filter: true
-#    api-docs:
-#      path: /usermanagementsystem-docs
-
 jwt:
   secret: taskformaybanksecretkey@&_)((^$#$#$#$##########@highlysecretkeyREALLYLONGSECRET
   expirationDateInMs: 18000000
