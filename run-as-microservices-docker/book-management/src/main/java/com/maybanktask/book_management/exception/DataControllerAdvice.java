@@ -1,5 +1,6 @@
 package com.maybanktask.book_management.exception;
 
+import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
+@Hidden
 public class DataControllerAdvice {
     private static final String SWAGGER_DOCS="/v3/api-docs";
     private static final String SWAGGER_UI="/swagger-ui";
@@ -22,7 +24,7 @@ public class DataControllerAdvice {
     public ResponseEntity<String> handleException(HttpServletRequest request, Exception ex) {
         String requestUri = request.getRequestURI();
         if (requestUri.contains(SWAGGER_DOCS) || requestUri.contains(SWAGGER_UI)) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not Found");
+            return ResponseEntity.status(HttpStatus.OK).body("Found");
         }
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getMessage());
     }
