@@ -27,6 +27,7 @@ TECHNOLOGY USED
 8) docker for containarization.
 9) Swagger-UI to access documentation
 10) Log SLF4J
+11) JUNIT springboot junit jupiter
 
 
 **************
