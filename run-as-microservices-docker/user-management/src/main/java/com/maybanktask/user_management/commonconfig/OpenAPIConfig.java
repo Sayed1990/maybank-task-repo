@@ -32,7 +32,7 @@ public class OpenAPIConfig {
 
         Info info = new Info()
                 .title("Library System API")
-                .version("1.0")
+                .version("2.0")
                 .contact(contact)
                 .description("This API exposes endpoints to manage library stufss.").termsOfService("")
                 .license(mitLicense);

@@ -104,7 +104,7 @@ public class BookController {
             @ApiResponse(responseCode = "404", content = {@Content(schema = @Schema())}),
             @ApiResponse(responseCode = "500", content = {@Content(schema = @Schema())})})
     @PutMapping(CommonConstants.UPDATE)
-    public ResponseEntity<Boolean> updateByDescription(@PathVariable String id, @RequestBody BooksourceDto booksourceDto) {
+    public ResponseEntity<Boolean> updateByDescription(@PathVariable String id, @RequestBody BooksourceDto booksourceDto) throws DataSourceException {
         dataSourceService.updateById(id,booksourceDto);
         logger.debug("updating to DB");
         return new ResponseEntity<>(true, HttpStatusCode.valueOf(200));

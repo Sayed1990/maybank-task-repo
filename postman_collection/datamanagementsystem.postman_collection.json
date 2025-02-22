@@ -59,7 +59,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"syed@gmail.com\",\r\n    \"password\":\"abc111\",\r\n    \"name\":\"Syed\",\r\n    \"age\":10\r\n}",
+							"raw": "{\r\n    \"email\":\"syed214@gmail.com\",\r\n    \"password\":\"abc111\",\r\n    \"name\":\"Syed\",\r\n    \"age\":10\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -84,16 +84,6 @@
 				{
 					"name": "http://{{ip_address}}:{{port}}/public/get/by/rt",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -116,16 +106,6 @@
 				{
 					"name": "http://{{ip_address}}:{{port}}/public/get/by/pt",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{bearer-token}}",
-									"type": "string"
-								}
-							]
-						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -140,6 +120,36 @@
 								"get",
 								"by",
 								"pt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{ip_address}}:{{port}}/home/logout",
+							"protocol": "http",
+							"host": [
+								"{{ip_address}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"home",
+								"logout"
 							]
 						}
 					},
@@ -246,7 +256,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"accountNumber\":\"111\",\r\n    \"trxAmmount\":10.00,\r\n    \"description\":\"FT-Z\",\r\n    \"trxDate\":\"2023-09-02\",\r\n    \"time\":\"11:11:11\",\r\n    \"customerDetails\":{\r\n        \"name\": \"Syed\",\r\n        \"title\": \"Senior Java Dev\",\r\n        \"age\": 35\r\n    }\r\n}",
+							"raw": "{\r\n   \"accountNumber\":\"111\",\r\n    \"trxAmmount\":10.00,\r\n    \"description\":\"FT-Z\",\r\n    \"trxDate\":\"2023-09-02\",\r\n    \"time\":\"11:11:11\",\r\n    \"customerDetails\":{\r\n        \"name\": \"Syed8124\",\r\n        \"title\": \"Senior Java Dev\",\r\n        \"age\": 35\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -254,7 +264,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://{{ip_address}}:{{port}}/data/update/1",
+
+							"raw": "http://{{ip_address}}:{{port}}/data/update/52",
+
 							"protocol": "http",
 							"host": [
 								"{{ip_address}}"
@@ -263,7 +275,7 @@
 							"path": [
 								"data",
 								"update",
-								"1"
+								"52"
 							]
 						}
 					},
@@ -336,6 +348,49 @@
 								{
 									"key": "pageSize",
 									"value": "18"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:8071/book/all?pageNo=0&pageSize=10",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{bearer-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8071/book/all?pageNo=0&pageSize=10",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8071",
+							"path": [
+								"book",
+								"all"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
 								}
 							]
 						}

@@ -1,5 +1,6 @@
 package com.maybanktask.user_management.controller;
 
+import com.maybanktask.user_management.commonconfig.JwtTokenUtil;
 import com.maybanktask.user_management.dto.LoginResponsePayload;
 import com.maybanktask.user_management.dto.UserRegistration;
 import com.maybanktask.user_management.exception.DataSourceException;
@@ -13,12 +14,16 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,6 +37,8 @@ import java.util.concurrent.CompletableFuture;
 @Validated
 public class UserController {
 
+    @Autowired
+    private JwtTokenUtil jwtTokenUtill;
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
@@ -65,6 +72,27 @@ public class UserController {
         else logger.debug("user is authenticated");
 
         return new ResponseEntity<>(new LoginResponsePayload(isAuthenticated.get(), isResponseSuccess ? "success" : "Bad Request"), HttpStatusCode.valueOf(isResponseSuccess ? 200 : 400));
+    }
+
+
+    /**
+     * This API handles loggout
+     */
+    @Operation(summary = "logout user", description = "invalidate session", tags = {"User", "post"})
+    @ApiResponses({@ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(), mediaType = "application/json")}), @ApiResponse(responseCode = "404", content = {@Content(schema = @Schema())}), @ApiResponse(responseCode = "500", content = {@Content(schema = @Schema())})})
+    @PostMapping(CommonConstants.LOGOUT)
+    public ResponseEntity<?> logout(@RequestHeader("Authorization") String token, HttpServletRequest request, HttpServletResponse response) {
+        var auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        if (token != null && token.startsWith("Bearer ")) {
+            String actualToken = token.substring(7);
+            jwtTokenUtill.invalidateToken(actualToken);
+            return ResponseEntity.ok("Token invalidated successfully.");
+        }
+        return ResponseEntity.badRequest().body("Invalid token.");
+
     }
 
 

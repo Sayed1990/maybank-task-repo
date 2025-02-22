@@ -7,6 +7,7 @@ import com.maybanktask.user_management.dto.BooksourceDto;
 import com.maybanktask.user_management.serializer.CustomPage;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -24,6 +25,9 @@ import java.util.concurrent.CompletableFuture;
 @Service
 @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 public class DataIntegrationServiceImpl implements DataIntegrationService{
+
+    @Value("${spring.kafka.topics}")
+    private String kafkaTopic;
 
     @Autowired
     KafkaTemplate<String, String> kafkaTemplate;
@@ -45,7 +49,7 @@ public class DataIntegrationServiceImpl implements DataIntegrationService{
         ObjectMapper objectMapper = new ObjectMapper();
 
         String payloadConverted = objectMapper.writeValueAsString(booksourceDto);
-        CompletableFuture<SendResult<String, String>> future = kafkaTemplate.send("${spring.kafka.topics}", payloadConverted);
+        CompletableFuture<SendResult<String, String>> future = kafkaTemplate.send(kafkaTopic, payloadConverted);
 
         return future.thenApply(result -> {
             Map<String, Object> successResponse = new HashMap<>();
@@ -99,6 +103,6 @@ public class DataIntegrationServiceImpl implements DataIntegrationService{
 
     @Bean
     public NewTopic createTopic(){
-        return new NewTopic("${spring.kafka.topics}",3,(short)1);
+        return new NewTopic(kafkaTopic,3,(short)1);
     }
 }

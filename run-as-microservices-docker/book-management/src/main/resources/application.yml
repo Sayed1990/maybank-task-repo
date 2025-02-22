@@ -1,12 +1,12 @@
 server:
-  port: 8072
+  port: 8071
 
 spring:
   kafka:
     topics: maybank-save-book
     consumer:
       auto-offset-reset: earliest
-      bootstrap-servers: localhost:9092
+      bootstrap-servers: kafka1:9092 #localhost:9092
       group-id: maybank-kafka
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
@@ -50,19 +50,24 @@ frontendURL: http://localhost:8070
 
 usermanagementsystem:
   openapi:
-    dev-url: http://localhost:8005
+    dev-url: http://localhost:8071
 
 springdoc:
   packages-to-scan: com.maybanktask.book_management
   swagger-ui:
-    path: /book-management-ui
+    path: /swagger-ui
+    url: /swagger-ui/v3/api-docs
+    tryItOutEnabled: true
+    operationsSorter: method
+    tagsSorter: alpha
+    filter: true
   api-docs:
-    path: /book-management-docs
+    path: /swagger-ui/v3/api-docs
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8762/eureka/
+      defaultZone: http://localhost:8761/eureka/
     register-with-eureka: true
     fetch-registry: true
   instance:
@@ -80,3 +85,12 @@ micro-service:
     landing-page-url: /book/getall
 
 allowedUrl: http://127.0.0.1:8070/
+
+ignored:
+  urls:
+    - "/home/**"
+    - "/v3/**"
+    - "/public"
+    - "/api-docs"
+    - "/swagger-ui/**"
+    - "/v3/api-docs/**"

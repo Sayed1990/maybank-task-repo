@@ -1,5 +1,6 @@
 package com.maybanktask.book_management.commonconfig;
 
+import com.maybanktask.book_management.property.IgnoredUrlsConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -32,6 +33,9 @@ public class SecurityConfiguration {
     @Value("${frontendURL}")
     String urlToCrossOrig;
 
+    @Autowired
+    IgnoredUrlsConfig ignoredUrlsConfig;
+
     private final JwtAuthorizationFilter jwtAuthorizationFilter;
 
     public SecurityConfiguration(JwtAuthorizationFilter jwtAuthorizationFilter) {
@@ -46,7 +50,7 @@ public class SecurityConfiguration {
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().requestMatchers("/home/**","/v3/**","/librarymanagementsystem-ui","/librarymanagementsystem-docs","/swagger-ui/**","/librarymanagementsystem-docs/**");
+        return (web) -> web.ignoring().requestMatchers(ignoredUrlsConfig.getUrls().toArray(new String[0])).requestMatchers("/swagger-ui/**","/v3/api-docs");
     }
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, AuthenticationManager authenticationManager) throws Exception {

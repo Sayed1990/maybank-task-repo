@@ -13,7 +13,9 @@ import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 @Service
 public class JwtTokenUtil {
@@ -21,6 +23,7 @@ public class JwtTokenUtil {
     private String secret;
     private int jwtExpirationInMs;
     private JwtParser jwtParser;
+    private Set<String> tokenBlacklist = new HashSet<>();
 
     private final String TOKEN_HEADER = "Authorization";
     private final String TOKEN_PREFIX = "Bearer ";
@@ -28,7 +31,6 @@ public class JwtTokenUtil {
 
     public JwtTokenUtil() {
     }
-
 
     @Value("${jwt.secret}")
     public void setSecret(String secret) {
@@ -66,7 +68,7 @@ public class JwtTokenUtil {
     public Claims resolveClaims(HttpServletRequest req) {
         try {
             String token = resolveToken(req);
-            if (token != null) {
+            if (token != null && !isTokenBlacklisted(token)) {
                 return parseJwtClaims(token);
             }
             return null;
@@ -100,4 +102,11 @@ public class JwtTokenUtil {
         }
     }
 
+    public void invalidateToken(String token) {
+        tokenBlacklist.add(token);
+    }
+
+    boolean isTokenBlacklisted(String token) {
+        return tokenBlacklist.contains(token);
+    }
 }
