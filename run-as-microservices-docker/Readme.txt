@@ -87,3 +87,12 @@ Before these steps, ensure that build the war file of all microservices ( user-m
  After connected all the network, please inspect it to see if all mounted . use command "docker network inspect maybank-network"
 4) once connected, now open postmaan and hit the api to test.
 
+SWAGGER URL ACCESS:
+
+1) USER-MANAGEMENT SWAGGER URL : http://localhost:8070/swagger-ui/index.html
+2) BOOK-MANAGEMENT SWAGGER URL : http://localhost:8071/swagger-ui/index.html
+
+
+LOGS ACCESS:-
+
+got to your project directory and see for logs under /logs folder
