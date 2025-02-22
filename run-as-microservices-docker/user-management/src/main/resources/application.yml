@@ -109,10 +109,11 @@ ignored:
   urls:
     - "/home/**"
     - "/v3/**"
-    - "/swagger-ui/**"
-    - "/public"
+    - "/public/**"
     - "/user-management-docs/**"
     - "/user-management-docs"
     - "/api-docs"
+    - "/swagger-ui/**"
+    - "/v3/api-docs/**"
 
 third-party-url: https://restcountries.com/v3.1/all
