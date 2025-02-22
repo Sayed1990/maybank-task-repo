@@ -1,0 +1,79 @@
+server:
+  port: 8070
+spring:
+  application:
+    name: user-management
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    STREAM_WRITE_CONSTRAINTS:
+      MAX_NESTING_DEPTH: 2000
+
+  server:
+    port: 8070
+    address: 0.0.0.0
+
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB_NAME:maybank-db}?allowPublicKeyRetrieval=true&useSSL=false
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:toor}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        temp:
+          use_jdbc_metadata_defaults: false
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+  sql:
+    init:
+      mode: always
+
+  logging:
+    level:
+      org.springframework.boot: ERROR
+
+jwt:
+  secret: taskformaybanksecretkey@&_)((^$#$#$#$##########@highlysecretkeyREALLYLONGSECRET
+  expirationDateInMs: 18000000
+
+frontendURL: http://localhost:8080
+
+usermanagementsystem:
+  openapi:
+    dev-url: http://localhost:8070
+
+springdoc:
+  packages-to-scan: com.maybanktask.user_management
+  swagger-ui:
+    path: /swagger-ui
+    url: /swagger-ui/v3/api-docs
+    tryItOutEnabled: true
+    operationsSorter: method
+    tagsSorter: alpha
+    filter: true
+  api-docs:
+    path: /swagger-ui/v3/api-docs
+
+datafeed:
+  name: syed
+  age: 35
+  password: 1234
+  email: syed@gmail.com
+
+ignored:
+  urls:
+    - "/home/**"
+    - "/v3/**"
+    - "/public/**"
+    - "/user-management-docs/**"
+    - "/user-management-docs"
+    - "/api-docs"
+    - "/swagger-ui/**"
+    - "/v3/api-docs/**"
+
+third-party-url: https://restcountries.com/v3.1/all
