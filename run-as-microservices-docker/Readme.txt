@@ -12,6 +12,7 @@ Pre-Requirement:-
 2) Install IDE for packaging the war with jdk version 23
 3) kafka with zookeeper ( if want to run locally)
 4) Postman Rest Api Client
+5) MySQL if locally wanna connect
 
 *******************
 TECHNOLOGY USED
@@ -27,7 +28,7 @@ TECHNOLOGY USED
 8) docker for containarization.
 9) Swagger-UI to access documentation
 10) Log SLF4J
-11) JUNIT springboot junit jupiter
+11) JUNIT springboot junit jupiter 
 
 
 **************
