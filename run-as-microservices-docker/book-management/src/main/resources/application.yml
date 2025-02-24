@@ -72,6 +72,7 @@ eureka:
     fetch-registry: true
   instance:
     hostname: book-management
+    prefer-ip-address: true
 
 datafeed:
   name: syed

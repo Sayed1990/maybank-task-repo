@@ -6,7 +6,7 @@ import com.maybanktask.user_management.serializer.CustomPage;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient(name = "${micro-service.book-service.name}", url="${micro-service.book-service.url}", configuration = FeignConfig.class)
+@FeignClient("${micro-service.book-service.name}")
 public interface BookServiceFeignClient {
 
     @GetMapping("${micro-service.book-service.get-book-by-page-url}")
