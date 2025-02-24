@@ -1,6 +1,5 @@
 package com.maybanktask.user_management.client;
 
-import com.maybanktask.user_management.commonconfig.FeignConfig;
 import com.maybanktask.user_management.dto.BooksourceDto;
 import com.maybanktask.user_management.serializer.CustomPage;
 import org.springframework.cloud.openfeign.FeignClient;

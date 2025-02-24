@@ -81,12 +81,14 @@ public class DataIntegrationServiceImpl implements DataIntegrationService{
      * @return
      */
     @Override
+    @Transactional(propagation = Propagation.NEVER)
     public CustomPage<Object> getAllData(int pageNo, int pageSize) {
         CustomPage<Object> pages=bookServiceFeignClient.getListOfBookByPages(pageNo, pageSize);
         return pages;
     }
 
     @Override
+    @Transactional(propagation = Propagation.NEVER)
     public CustomPage<Object> getById(int pageNo, int pageSize, String customerId) {
         return bookServiceFeignClient.getById(pageNo,pageSize, customerId);
     }
