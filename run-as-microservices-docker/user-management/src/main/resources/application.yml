@@ -106,3 +106,10 @@ ignored:
     - "/v3/api-docs/**"
 
 third-party-url: https://restcountries.com/v3.1/all
+
+feign:
+  discovery:
+    enabled: true
+ribbon:
+  eureka:
+    enabled: true
